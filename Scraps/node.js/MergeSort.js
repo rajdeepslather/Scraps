@@ -4,7 +4,7 @@ module.exports = {
     }
 }
 
-// main();
+//  main();
 
 function main() {
     const total = 201;
@@ -60,15 +60,9 @@ function interleave(arr1, arr2, counter) {
     let i = 0;
     let j = 0;
     let k = 0;
-    while (i < arr1.length || j < arr2.length) {
+    while (i < arr1.length && j < arr2.length) {
         counter.count++;
-        if (i === arr1.length) {
-            array.push(arr2[j]);
-            j++
-        } else if (j === arr2.length) {
-            array.push(arr1[i]);
-            i++
-        } else if (arr1[i] < arr2[j]) {
+        if (arr1[i] < arr2[j]) {
             array[k] = arr1[i];
             i++;
         } else {
@@ -76,6 +70,16 @@ function interleave(arr1, arr2, counter) {
             j++;
         }
         k++;
+    }
+    while (i < arr1.length) {
+        counter.count++;
+        array.push(arr1[i]);
+        i++
+    }
+    while (j < arr2.length) {
+        counter.count++;
+        array.push(arr2[j]);
+        j++
     }
     return array;
 }
