@@ -1,6 +1,7 @@
 # Load libraries
 import sys
-sys.path.append("D:\\GitRepo\\Scraps\\Python\\MachineLearning")
+sys.path.append(
+    "D:\\Rajdeep workspace\\Git\\GitRepo\\Scraps\\Python\\MachineLearning")
 
 import visualize as viz
 import matplotlib.pyplot as plt
@@ -18,7 +19,7 @@ from sklearn.tree import DecisionTreeClassifier
 
 
 def get_dataset():
-    url = "D:\\GitRepo\\Scraps\\Python\\MachineLearning\\Data\\irisDataSet.csv"
+    url = "D:\\Rajdeep workspace\\Git\\GitRepo\\Scraps\\Python\\MachineLearning\\Data\\irisDataSet.csv"
     names = ['sepal-length', 'sepal-width',
              'petal-length', 'petal-width', 'class']
     dataset = pandas.read_csv(url, names=names)
