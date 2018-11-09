@@ -1,6 +1,8 @@
 if __name__ == '__main__':
-    n = int(raw_input())
-    arr = map(int, raw_input().split())
+    arr = [1, 2, 3, 4, 5, 6, 7, 7, 3, 4, 5, 3]
+
+    print sorted(set(arr))[-2]
+
     first = None
     second = None
     for i in arr:
