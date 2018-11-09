@@ -1,4 +1,6 @@
 import itertools
+import datetime
+import math
 
 
 def factors(x):
@@ -20,10 +22,29 @@ def xfilter(predicate, generator):
     return (x for x in generator if predicate(x))
 
 
-print list(itertools.islice(itertools.count(1), 100))
-print map(factors, itertools.islice(itertools.count(1), 100))
-print filter(is_prime, itertools.islice(itertools.count(1), 100))
-print filter(is_prime, itertools.count(1))
+def print_all(generator):
+    try:
+        while True:
+            print generator.next()
+    except StopIteration:
+        pass
 
-print list(xfilter(is_prime, xrange(10)))
-print list(itertools.islice(xfilter(is_prime, itertools.count(1)), 100))
+
+def benchmark(runnable):
+    start = datetime.datetime.now()
+    runnable()
+    diff = datetime.datetime.now() - start
+    print 'time taken ' + repr(diff)
+
+
+benchmark(lambda: print_all(itertools.islice(
+    xfilter(is_prime, itertools.count(1)), 500)))
+
+# print list(itertools.islice(itertools.count(1), 100))
+# print map(factors, itertools.islice(itertools.count(1), 100))
+# print filter(is_prime, itertools.islice(itertools.count(1), 100))
+# print filter(is_prime, itertools.count(1))
+
+# print list(xfilter(is_prime, xrange(10)))
+# print list(itertools.islice(xfilter(is_prime, itertools.count(1)), 100))
+# print_all(xfilter(lambda x:x%2 == 0, xrange(10)))
