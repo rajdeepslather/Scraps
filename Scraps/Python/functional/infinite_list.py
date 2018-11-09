@@ -1,6 +1,5 @@
 import itertools
 import datetime
-import math
 
 
 def factors(x):

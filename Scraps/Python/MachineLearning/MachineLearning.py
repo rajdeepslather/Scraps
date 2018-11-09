@@ -1,12 +1,9 @@
-# Load libraries
+from __future__ import print_function
 import sys
-sys.path.append(
-    "D:\\Rajdeep workspace\\Git\\GitRepo\\Scraps\\Python\\MachineLearning")
-
-import visualize as viz
-import matplotlib.pyplot as plt
 import pandas
-from pandas.plotting import scatter_matrix
+import matplotlib.pyplot as plt
+# import visualize as viz
+# from pandas.plotting import scatter_matrix
 from sklearn import model_selection
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.linear_model import LogisticRegression
@@ -16,6 +13,9 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.svm import SVC
 from sklearn.tree import DecisionTreeClassifier
+
+sys.path.append(
+    "D:\\Rajdeep workspace\\Git\\GitRepo\\Scraps\\Python\\MachineLearning")
 
 
 def get_dataset():
