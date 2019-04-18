@@ -8,8 +8,7 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 /**
- *
- * Can be used with mutable objects.
+ * This Class allows you to work with a Value V in a thread safe manner. V can be mutable.
  * 
  * @author RAJDEEP
  * @param <V>
