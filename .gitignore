@@ -13,3 +13,4 @@ Scraps/Python/functional/infinite_list.pyc
 
 /target/
 /Scraps/java/*/bin/
+*.class
