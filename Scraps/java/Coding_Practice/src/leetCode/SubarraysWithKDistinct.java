@@ -5,36 +5,51 @@ import java.util.Map;
 
 public class SubarraysWithKDistinct {
 
-	static public int subarraysWithKDistinct(final int[] A, final int K) {
-		final Map<Integer, Integer> history = new HashMap<>();
+	public int inc(Map<Integer, Integer> map, int a) {
+		int c = map.getOrDefault(a, 0) + 1;
+		map.put(a, c);
+		return c;
+	}
+
+	public int dec(Map<Integer, Integer> map, int a) {
+		int c = map.getOrDefault(a, 0) - 1;
+		if (c <= 0)
+			map.remove(a);
+		else
+			map.put(a, c);
+		return c;
+	}
+
+	public int subarraysWithKDistinct(final int[] A, final int K) {
+		final Map<Integer, Integer> map = new HashMap<>();
 		int count = 0;
+		int windowC = 0;
+		int i = 0;
 		int j = 0;
-		for (int i = 0; i < A.length; i++) {
-			while (j < A.length) {
-				final int x = A[j++];
-				Integer c = history.get(x);
-				if (c == null)
-					c = 0;
-				history.put(x, c + 1);
-				if (history.size() == K)
-					count++;
-				else if (history.size() > K)
-					break;
+
+		while (j < A.length) {
+			inc(map, A[j]);
+			if (map.size() > K) {
+				dec(map, A[i]);
+				windowC = 0;
+				i++;
 			}
-			final int x = A[i];
-			final int c = history.get(x);
-			if (c == 1)
-				history.remove(x);
-			else
-				history.put(x, c - 1);
-			if (history.size() == K)
-				count++;
+			while (map.getOrDefault(A[i], 0) > 1) {
+				dec(map, A[i]);
+				i++;
+				windowC++;
+			}
+			if (map.size() == K) {
+				count += windowC + 1;
+			}
+			j++;
 		}
 		return count;
 	}
 
 	public static void main(final String[] args) {
+		SubarraysWithKDistinct cls = new SubarraysWithKDistinct();
 		final int[] A = { 1, 2, 1, 2, 3 };
-		System.out.println(subarraysWithKDistinct(A, 2));
+		System.out.println(cls.subarraysWithKDistinct(A, 2));
 	}
 }
