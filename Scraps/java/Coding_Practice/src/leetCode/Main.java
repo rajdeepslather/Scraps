@@ -2,7 +2,7 @@ package leetCode;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(final String[] args) {
 		System.out.println("Sup!");
 	}
 
