@@ -49,13 +49,15 @@ public class TwoSum {
 	}
 
 	public static int[] twoSumSortedMax(int[] nums, int target) {
+		if (nums == null || nums.length == 0)
+			return null;
+
 		int j = nums.length - 1;
 		int i = 0;
 		int max = 0;
 		int[] ans = new int[2];
 		while (i < j) {
 			if (nums[i] + nums[j] < target) {
-				i++;
 				if (max == nums[i] + nums[j]) {
 					if (ans[1] < j) {
 						max = nums[i] + nums[j];
@@ -67,9 +69,10 @@ public class TwoSum {
 					ans[0] = i;
 					ans[1] = j;
 				}
-			} else {
+				i++;
+			} else
 				j--;
-			}
+
 		}
 		return ans;
 	}
