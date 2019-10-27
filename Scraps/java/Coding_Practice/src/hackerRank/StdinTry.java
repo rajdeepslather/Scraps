@@ -4,11 +4,11 @@ import java.util.Scanner;
 
 public class StdinTry {
 
-	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int a = scan.nextInt();
-		int b = scan.nextInt();
-		int c = scan.nextInt();
+	public static void main(final String[] args) {
+		final Scanner scan = new Scanner(System.in);
+		final int a = scan.nextInt();
+		final int b = scan.nextInt();
+		final int c = scan.nextInt();
 		scan.close();
 
 		System.out.println(a);
@@ -17,13 +17,13 @@ public class StdinTry {
 
 	}
 
-	public static void main2(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int i = scan.nextInt();
-		Double d = scan.nextDouble();
+	public static void main2(final String[] args) {
+		final Scanner scan = new Scanner(System.in);
+		final int i = scan.nextInt();
+		final Double d = scan.nextDouble();
 		// Skip last new line
 		scan.nextLine();
-		String s = scan.nextLine();
+		final String s = scan.nextLine();
 
 		System.out.println("String: " + s);
 		System.out.println("Double: " + d);
