@@ -20,25 +20,58 @@ public class TwoSum {
 		return null;
 	}
 
+	public int[] twoSumMax(int[] nums, int target) {
+		int[] ans = new int[2];
+		for (int j = 0; j < nums.length - 1; j++) {
+			ans[0] = j;
+			for (int i = j + 1; i < nums.length; i++) {
+				if (nums[ans[0]] + nums[i] == target) {
+					ans[1] = i;
+					return ans;
+				}
+			}
+		}
+		return ans;
+	}
+
 	public static int[] twoSumSorted(int[] nums, int target) {
-		Map<Integer, Integer> map = new HashMap<>(); // diff->num
 		int j = nums.length - 1;
 		int i = 0;
 		while (i < j) {
-			int x = nums[i];
-			Integer k = map.get(x);
-			if (k != null)
-				return new int[] { ((k > i) ? i : k) + 1, ((k > i) ? k : i) + 1 };
-			map.put(target - x, i);
-
-			i++;
-			x = nums[j];
-			k = map.get(x);
-			if (k != null)
-				return new int[] { ((k > j) ? j : k) + 1, ((k > j) ? k : j) + 1 };
-			map.put(target - x, j);
+			if (nums[i] + nums[j] == target)
+				return new int[] { i + 1, j + 1 };
+			else if (nums[i] + nums[j] < target)
+				i++;
+			else
+				j--;
 		}
 		return null;
+	}
+
+	public static int[] twoSumSortedMax(int[] nums, int target) {
+		int j = nums.length - 1;
+		int i = 0;
+		int max = 0;
+		int[] ans = new int[2];
+		while (i < j) {
+			if (nums[i] + nums[j] < target) {
+				i++;
+				if (max == nums[i] + nums[j]) {
+					if (ans[1] < j) {
+						max = nums[i] + nums[j];
+						ans[0] = i;
+						ans[1] = j;
+					}
+				} else if (max < nums[i] + nums[j]) {
+					max = nums[i] + nums[j];
+					ans[0] = i;
+					ans[1] = j;
+				}
+			} else {
+				j--;
+			}
+		}
+		return ans;
 	}
 
 	static public int twoSumCountPairs(int[] nums, int target) {
@@ -60,6 +93,7 @@ public class TwoSum {
 
 	public static void main(String[] args) {
 		final int[] A = { 2, 7, 11, 15 };
-		System.out.println(twoSumSorted(A, 9));
+//		System.out.println(twoSumSorted(A, 9));
+		System.out.println(twoSumSortedMax(A, 9));
 	}
 }
