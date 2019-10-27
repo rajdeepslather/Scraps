@@ -5,9 +5,10 @@ import java.util.concurrent.Callable;
 import java.util.function.Supplier;
 
 /**
+ * This Class allows you to work with a Value V in a thread safe manner.
  *
- * This is faster than AtomicReference in many cases. Do not use this with
- * mutable objects, use AtomicReadWrite for that instead.
+ * This is faster than AtomicReference in the case of immutable objects. 
+ * Do not use this with mutable objects, use AtomicReadWrite for that instead.
  * 
  * @author RAJDEEP
  * @param <V>
