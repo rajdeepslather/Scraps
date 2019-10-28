@@ -14,7 +14,6 @@ public class StdinTry {
 		System.out.println(a);
 		System.out.println(b);
 		System.out.println(c);
-
 	}
 
 	public static void main2(final String[] args) {
