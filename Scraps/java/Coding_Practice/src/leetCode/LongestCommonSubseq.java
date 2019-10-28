@@ -1,6 +1,6 @@
 package leetCode;
 
-public class LongestCommonSubsequence {
+public class LongestCommonSubseq {
 
 	public int longestCommonSubsequence(final String text1, final String text2) {
 		final char[] s1 = text1.toCharArray();
@@ -23,7 +23,7 @@ public class LongestCommonSubsequence {
 	}
 
 	public static void main(final String[] args) {
-		final LongestCommonSubsequence cls = new LongestCommonSubsequence();
+		final LongestCommonSubseq cls = new LongestCommonSubseq();
 		System.out.println(cls.longestCommonSubsequence("abcde", "ace"));
 	}
 }
