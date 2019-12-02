@@ -1,7 +1,5 @@
 from typing import List
 
-from typing import List
-
 
 class Solution:
     def prisonAfterNDays(self, cells: List[int], n: int) -> List[int]:
